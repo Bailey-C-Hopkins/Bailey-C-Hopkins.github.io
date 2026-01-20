@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bailey C. Hopkins, M.Sc. | Robotics Researcher</title>
+    <meta name="description" content="PhD Candidate in Robotics at Colorado School of Mines.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --text: #333;
+            --text-light: #666;
+            --border: #e1e4e8;
+            
+            /* School Colors */
+            --mines-blue: #09396C;
+            --hawaii-green: #024731;
+            --penn-blue: #001E44;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { min-height: 100%; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            /* Deep Dive Gradient */
+            min-height: 100vh; 
+            background: linear-gradient(180deg, 
+                #ffffff 0%, 
+                #e1f5fe 15%, 
+                #81d4fa 40%, 
+                #0277bd 75%, 
+                #002147 100%);
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Glass Cards */
+        section, header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        header {
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            margin-top: 20px;
+        }
+
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-weight: 700; font-size: 1.2rem; color: var(--primary); }
+        .nav-links a { margin-left: 20px; color: var(--text-light); text-decoration: none; font-weight: 500; }
+        .nav-links a:hover { color: var(--secondary); }
+
+        h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+        h2 { font-size: 1.75rem; color: var(--primary); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #eee; }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .btn:hover { background: var(--secondary); color: white; }
+        
+        /* --- NEW STACKING CARD CSS --- */
+        .education-stack {
+            position: relative;
+            /* Extra bottom space ensures the last card has room to breathe */
+            padding-bottom: 50px; 
+        }
+
+        .edu-card {
+            /* This is the magic "Samsung" effect */
+            position: sticky; 
+            top: 120px; /* How far from top it sticks */
+            
+            background: white;
+            border-radius: 15px;
+            padding: 0; /* Padding handled by inner flex */
+            margin-bottom: 40px; /* Space between start of cards */
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1); /* Shadow goes UP to separate stacks */
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            
+            /* Flex layout for Side-by-Side Logo/Content */
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .edu-visual {
+            flex: 1;
+            min-width: 250px;
+            background: #f4f6f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border-right: 1px solid #eee;
+        }
+
+        .edu-visual img {
+            max-width: 80%;
+            max-height: 180px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .edu-content {
+            flex: 2;
+            padding: 2.5rem;
+            min-width: 300px;
+        }
+
+        /* Specific School Colors for Top Borders */
+        .edu-card.mines { border-top: 6px solid var(--mines-blue); }
+        .edu-card.hawaii { border-top: 6px solid var(--hawaii-green); }
+        .edu-card.psu { border-top: 6px solid var(--penn-blue); }
+
+        .edu-date { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 10px; display: block;}
+        .edu-degree { font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
+        .edu-lab { font-size: 1.1rem; color: var(--secondary); margin-bottom: 15px; font-weight: 600; }
+        
+        /* Footer */
+        footer { text-align: center; padding: 4rem 0; color: rgba(255,255,255,0.8); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .edu-card { flex-direction: column; top: 80px; }
+            .edu-visual { padding: 1.5rem; min-width: 100%; border-right: none; border-bottom: 1px solid #eee; }
+            .edu-visual img { max-height: 100px; }
+            .edu-content { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="padding:0;">
+            <nav>
+                <div class="nav-logo">Bailey C. Hopkins</div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#education">Education</a>
+                    <a href="#research">Research</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section style="text-align: center;">
+            <h1>Bailey C. Hopkins, M.Sc.</h1>
+            <p style="color:#666; font-size:1.2rem;">PhD Candidate in Robotics | Engineering Research Lead</p>
+            <div style="margin: 20px 0;">
+                <a href="https://linkedin.com/in/bailey-hopkins" target="_blank" style="margin:0 10px; color:#2c3e50; font-size:1.5rem;"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Bailey-C-Hopkins" target="_blank" style="margin:0 10px; color:#2c3e50; font-size:1.5rem;"><i class="fab fa-github"></i></a>
+            </div>
+            
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a <strong>PhD student in Robotics</strong> at the <strong>Colorado School of Mines</strong> (expected 2026). My philosophy views <strong>mobility as a scientific instrument</strong>. Rather than treating terrain interaction as a hazard, I develop algorithms that allow robots to use proprioceptive data to infer geotechnical properties in real-time.</p>
+        </section>
+
+        <div id="education" class="education-stack">
+            
+            <div class="edu-card mines">
+                <div class="edu-visual">
+                    <img src="assets/Mines-center.png" alt="Mines Logo">
+                </div>
+                <div class="edu-content">
+                    <span class="edu-date">Expected 2026 | Golden, CO</span>
+                    <div class="edu-degree">Ph.D. in Robotics</div>
+                    <div class="edu-lab">Colorado School of Mines | RoSE Lab</div>
+                    <p><strong>Research:</strong> System Identification & Terramechanics.</p>
+                    <p style="margin-top:10px; font-size:0.95rem;">
+                        Developing Bayesian Optimization methods to inversely determine soil parameters from rover movement data. Creator of the RoSE Lab Rover Mobility Dataset.
+                    </p>
+                </div>
+            </div>
+
+            <div class="edu-card hawaii">
+                <div class="edu-visual">
+                    <img src="assets/UH.png" alt="UH Manoa">
+                </div>
+                <div class="edu-content">
+                    <span class="edu-date">2021 | Honolulu, HI</span>
+                    <div class="edu-degree">M.S. in Civil Engineering</div>
+                    <div class="edu-lab">University of Hawai'i | Cher Lab</div>
+                    <p><strong>Research:</strong> Coastal Asset Protection.</p>
+                    <p style="margin-top:10px; font-size:0.95rem;">
+                         Created computer models for coastal revetment structures and validated designs via 3D printing and wave flume testing for the HI Dept of Transportation.
+                    </p>
+                </div>
+            </div>
+
+            <div class="edu-card psu">
+                <div class="edu-visual">
+                     <img src="assets/PSU.png" alt="PSU Behrend">
+                </div>
+                <div class="edu-content">
+                    <span class="edu-date">2019 | Erie, PA</span>
+                    <div class="edu-degree">B.S. Computational Physics</div>
+                    <div class="edu-lab">Penn State Behrend</div>
+                    <p><strong>Research:</strong> Luminescent Solar Concentration.</p>
+                    <p style="margin-top:10px; font-size:0.95rem;">
+                        Analyzed the relationship between distance and energy output. Awarded 1st Place Oral Presentation at the 2019 Sigma Xi Undergraduate Research Conference.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <section id="research">
+            <h2>Additional Experience</h2>
+            <div style="margin-bottom: 20px;">
+                <h4>🌙 Lunar Surface Systems Intern | Astrobotic</h4>
+                <p><i>Summer 2023</i> &mdash; Focused on slope stability of lunar regolith simulants and personnel safety for VSAT stability testing.</p>
+            </div>
+            <div>
+                <h4>🔥 Plasma Arc Gasification Analysis</h4>
+                <p><i>2020</i> &mdash; Conducted economic analysis for waste-to-energy implementation in Honolulu.</p>
+            </div>
+        </section>
+
+        <section id="personal">
+            <h2>Life Outside the Lab</h2>
+            <p>When I'm not in the lab, I am in the ocean.</p>
+            <ul style="margin-left:20px; margin-top:10px;">
+                <li><strong>PADI OWSI Instructor:</strong> Member #531046</li>
+                <li><strong>Sailing:</strong> Avid sailor and water sports enthusiast.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Bailey C. Hopkins.</p>
+            <div style="margin-top:10px; font-size: 1.2rem;">
+                <a href="https://github.com/Bailey-C-Hopkins" style="color:white; margin: 0 10px;"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/bailey-hopkins" style="color:white; margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
